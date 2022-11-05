@@ -20,12 +20,12 @@
             // console.log(e.object)
             if(url.indexOf(detect) !== -1) {
                 let token = url.slice(url.indexOf(detect) + detect.length)
-                closeModal(token)
+                closeModal({token})
             }
         })
     }
 </script>
 
 <page on:loaded={loaded}>
-    <webView id="webview" src="https://dev.tower-up.stream/native"  />
+    <webView id="webview" src="https://dev.tower-up.stream/native" />
 </page>

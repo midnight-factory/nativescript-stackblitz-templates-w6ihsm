@@ -2,7 +2,7 @@
     import { navigate } from 'svelte-native'
 
     import { onMount } from 'svelte'
-    import { user } from './lib/stores'
+    import { user, setUser } from './lib/stores'
 
     // import { evalFQLCode } from './lib/fauna/src/fql.ts'
     import SplashScreen from '@/components/SplashScreen.svelte'

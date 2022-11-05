@@ -2,7 +2,7 @@
     import { onMount } from "svelte";
     import { navigate, showModal } from "svelte-native";
     import TwitchOauth from "@/components/TwitchOauth.svelte";
-    import { setUser } from "~/lib/stores";
+    import { setUser } from "@/lib/stores";
     
     let isMounted = false
     let isFetching = false
@@ -12,7 +12,7 @@
     })
 
     async function triggerOauth(){
-        let data = await showModal({ page: TwitchOauth, fullscreen: false })
+        let data = await showModal({ page: TwitchOauth, fullscreen: true })
         setUser(data)
     }
 </script>
