@@ -1,36 +1,53 @@
 <script>
     import { onMount } from 'svelte'
     import { user, settings } from '@/lib/stores'
-        
+    import { TNSPusher } from '@triniwiz/nativescript-pusher-channels';
+
     // console.log($settings.search.channel)
-    let pusher
     let pusherSubs = { channel: undefined, game: undefined }
     let isChannelUpToDate = false
     
-    onMount(async () => {
-        pusher = Pusher.getInstance();
+    onMount(() => {
+        console.log(process.env.PUBLIC_PUSHER_APP_KEY)
+        // let pusher = new TNSPusher(process.env.PUBLIC_PUSHER_APP_KEY);
+        // pusher.connection.bind( 'error', err => {
+        //     console.log(err)
+        // })
 
-        await pusher.init({
-            apiKey: process.env.PUBLIC_PUSHER_APP_KEY,
-            cluster: process.env.PUBLIC_PUSHER_CLUSTER
+        const socket = new TNSPusher( process.env.PUBLIC_PUSHER_APP_KEY, {
+            cluster: process.env.PUBLIC_PUSHER_CLUSTER,
         });
+        console.log('tns2')
 
+        // const channel = socket.subscribe('twitch.clipId.12826');
+        // channel.bind('twitch.clipId.12826', function (data) {
+        //     console.log(data.message);
+        // });
+        // pusher = Pusher.getInstance();
 
-        await pusher.connect()
+        // await pusher.init({
+        //     apiKey: process.env.PUBLIC_PUSHER_APP_KEY,
+        //     cluster: process.env.PUBLIC_PUSHER_CLUSTER
+        // });
 
-        // channel names are ${channelId}.status
-        handleSubscriptions()
+        // await pusher.connect()
+
+        // // channel names are ${channelId}.status
+        // await handleSubscriptions()
+        // console.log('mounted')
     })
 
-    function handleSubscriptions(){
-        pusher.unsubscribe($settings.search.channel.id)
-        pusherSubs.channel = await pusher.subscribe({
-            channelName: ,
-            onEvent: (event) => {
-                console.log(`onEvent: ${event}`);
-            };
-        })
-    }
+    // async function handleSubscriptions(){
+    //     let channelName = `twitch.clipId.${$settings.search.channel.id}`
+    //     pusher.unsubscribe(channelName)
+    //     pusherSubs.channel = await pusher.subscribe({
+    //         channelName,
+    //         onEvent: (event) => {
+    //             console.log('test')
+    //             console.log(`onEvent: ${event}`);
+    //         }
+    //     })
+    // }
 </script>
 
 <page class="" actionBarHidden="true">
