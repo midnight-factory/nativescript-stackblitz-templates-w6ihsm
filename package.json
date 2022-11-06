@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@nativescript/core": "~8.3.0",
+    "@pusher/pusher-websocket-react-native": "^1.1.0",
     "svelte-native": "~1.0.0"
   },
   "devDependencies": {

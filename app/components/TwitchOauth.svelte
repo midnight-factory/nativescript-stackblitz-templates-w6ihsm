@@ -22,7 +22,7 @@
                 let params = new URL(url)
                 let data = {
                     token: url.searchParams.get('token'),
-                    channel: ""
+                    channel: JSON.parse(url.searchParams.get('channel'))
                 }
                 closeModal({token})
             }

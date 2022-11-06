@@ -36,18 +36,18 @@
                     <HouseImg width="18" height="18" />
                     <label text="Home"/>
                 </flexboxLayout>
-                <flexboxLayout class="flex-col p-4">
-                    <TwitchClipImg width="18" height="18" on:tap={() => triggerNav('clipSearch')}/>
+                <flexboxLayout class="flex-col p-4" on:tap={() => triggerNav('clipSearch')}>
+                    <TwitchClipImg width="18" height="18"/>
                     <label text="Clip Search"/>
                 </flexboxLayout>
             </flexboxLayout>
             <flexboxLayout class="">
-                <flexboxLayout class="flex-col p-4">
-                    <MultichatImg width="18" height="18" on:tap={() => triggerNav('multichat')}/>
+                <flexboxLayout class="flex-col p-4" on:tap={() => triggerNav('multichat')}>
+                    <MultichatImg width="18" height="18"/>
                     <label text="Multichat"/>
                 </flexboxLayout>
-                <flexboxLayout class="flex-col p-4">
-                    <StudioImg width="18" height="18" on:tap={() => triggerNav('studio')}/>
+                <flexboxLayout class="flex-col p-4" on:tap={() => triggerNav('studio')}>
+                    <StudioImg width="18" height="18"/>
                     <label text="Studio"/>
                 </flexboxLayout>
             </flexboxLayout>
