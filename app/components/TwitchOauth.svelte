@@ -19,7 +19,11 @@
 
             // console.log(e.object)
             if(url.indexOf(detect) !== -1) {
-                let token = url.slice(url.indexOf(detect) + detect.length)
+                let params = new URL(url)
+                let data = {
+                    token: url.searchParams.get('token'),
+                    channel: ""
+                }
                 closeModal({token})
             }
         })
